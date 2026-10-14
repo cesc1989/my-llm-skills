@@ -5,7 +5,7 @@ description: Usar cuando el usuario quiera ejecutar un plan ya elaborado. Dispar
 
 # Ejecuta plan por etapas
 
-Ejecutar o empezar un plan previamente generado. El usuario te indicará el plan o preguntale si hay alguno. Hazlo por las etapas que fueron concebidas. Antes de seguir con la siguiente etapa, pide confirmación.
+Ejecutar o empezar un plan previamente generado. El usuario te indicará el plan o preguntale si hay alguno. Hazlo por las etapas que fueron concebidas. Pide confirmación antes de seguir con la siguiente etapa.
 
 ## Consideraciones importantes
 

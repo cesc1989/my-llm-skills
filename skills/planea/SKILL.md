@@ -10,5 +10,6 @@ description: Usar cuando el usuario quiera planear trabajo sobre una caracterís
 3. Incluye código relevante cuando se cambien secciones existentes.
 4. Si vas a escribir pruebas en Minitest o RSpec usa la forma donde todo va dentro del example. Para que sea autocontenido. Sigue el patrón [Four-phase test de Thoughtbot](https://thoughtbot.com/blog/four-phase-test).
 5. Crea el plan como un archivo .md en la carpeta `./docs`, `./plans` o la que esté disponible.
+6. Resume al usuario el plan e indica donde puede encontrarlo.
 
 Responde siempre en español y sé conciso.

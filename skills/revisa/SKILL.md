@@ -14,4 +14,4 @@ Revisa, por lo menos, esto:
 - imágenes (si las hay)
 - reportes (si los hay)
 
-Y cualquier otra cosa que pueda ayudar a esclarecer la inqueitud del usuario. Al final, genera un reporte con los descubrimientos.
+Y cualquier otra cosa que pueda ayudar a esclarecer la inquietud del usuario. Al final, genera un reporte en pantalla con los descubrimientos.
