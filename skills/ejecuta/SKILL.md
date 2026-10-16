@@ -50,6 +50,49 @@ Buen espaciado en código ERB:
 </table>
 ```
 
+- En ERB y HTML, además de la línea en blanco entre elementos hermanos, sigue estas reglas. El objetivo es que quien revise el código vea el HTML menos apiñado.
+  1. Sin línea en blanco justo después de abrir una etiqueta: el primer hijo va pegado a su padre.
+  2. Si una etiqueta tiene los atributos en varias líneas, el `>` de cierre va solo en su línea, alineado con el inicio de la etiqueta.
+  3. El contenido de un elemento (texto o `<%= %>`) va en su propia línea, indentado. Nunca `<div><%= algo %></div>` en una sola línea.
+
+Mal espaciado en código ERB:
+```erb
+<div class="menu-link"
+     data-controller="clipboard"
+     data-clipboard-text-value="<%= menu_url %>">
+
+  <div class="menu-link-title"><%= t(".title") %></div>
+  <div class="menu-link-url">
+    <span class="menu-link-host"><%= host %></span>
+    <strong><%= path %></strong>
+  </div>
+</div>
+```
+
+Buen espaciado en código ERB:
+```erb
+<div class="menu-link"
+     data-controller="clipboard"
+     data-clipboard-text-value="<%= menu_url %>"
+>
+  <div class="menu-link-title">
+    <%= t(".title") %>
+  </div>
+
+  <div class="menu-link-url">
+    <span class="menu-link-host">
+      <%= host %>
+    </span>
+
+    <strong>
+      <%= path %>
+    </strong>
+  </div>
+</div>
+```
+
+Como el texto queda con saltos de línea alrededor, en las pruebas que comparen el texto de un elemento usa `.text.strip` o `include` en vez de comparar el texto exacto.
+
 - Si escribes pruebas en Minitest o RSpec, los examples deben ser autocontenidos, es decir, la preparación de datos, ejecucíon y verificación del resultado, y si lo hay, la limpieza, deben pasar en el mismo bloque `it`.
 
 Ejemplo de una prueba con este patrón:
