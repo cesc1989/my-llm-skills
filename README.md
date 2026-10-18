@@ -17,3 +17,7 @@ Clona el repo y haz symlink:
 ```bash
 ln -s ~/projects/my-llm-skills/skills/* ~/.claude/skills/
 ```
+
+## Otras Skills
+
+- [Superpowers](https://github.com/obra/superpowers/): de esta tomé algunos detalles.
