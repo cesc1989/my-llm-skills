@@ -93,6 +93,42 @@ Buen espaciado en código ERB:
 
 Como el texto queda con saltos de línea alrededor, en las pruebas que comparen el texto de un elemento usa `.text.strip` o `include` en vez de comparar el texto exacto.
 
+- En Ruby, siempre envuelve los argumentos de una llamada a método en paréntesis, también en pruebas (`get`, `patch`, `post`, `visit`, `within`, etc.).
+
+Mal:
+```ruby
+patch "/squad/#{player_id}/release"
+within ".sidebar" do
+```
+
+Bien:
+```ruby
+patch("/squad/#{player_id}/release")
+within(".sidebar") do
+```
+
+- Cuando una llamada o un hash no cabe cómodo en una línea, pon cada argumento o atributo en su propia línea. No agrupes varios atributos por línea.
+
+Mal:
+```ruby
+player_id = players.insert(
+  name: "Jugador", age: "25", overall: "70", role: 0,
+  height: "180", club_id: club_id
+)
+```
+
+Bien:
+```ruby
+player_id = players.insert(
+  name: "Jugador",
+  age: "25",
+  overall: "70",
+  role: 0,
+  height: "180",
+  club_id: club_id
+)
+```
+
 - Si escribes pruebas en Minitest o RSpec, los examples deben ser autocontenidos, es decir, la preparación de datos, ejecucíon y verificación del resultado, y si lo hay, la limpieza, deben pasar en el mismo bloque `it`.
 
 Ejemplo de una prueba con este patrón:
@@ -110,13 +146,13 @@ describe "Sidebar test suite run status", type: :system do
 
       visit repository_test_suite_run_path(repository, test_suite_run)
 
-      within ".test-suite-run-list" do
+      within(".test-suite-run-list") do
         expect(page).to have_content("Running")
       end
 
       task.update!(exit_code: 0)
 
-      within ".test-suite-run-list" do
+      within(".test-suite-run-list") do
         expect(page).to have_content("Passed")
       end
     end
