@@ -7,15 +7,20 @@ description: Usar cuando el usuario quiera ejecutar un plan ya elaborado. Dispar
 
 Ejecutar o empezar un plan previamente generado. El usuario te indicará el plan o preguntale si hay alguno. Hazlo por las etapas que fueron concebidas. Pide confirmación antes de seguir con la siguiente etapa.
 
-## Consideraciones importantes
+## Consideraciones técnicas importantes
 
-- Manten un buen espaciado en código Ruby y ERB.
+Manten un buen espaciado y alineado en código Ruby y ERB.
 
-Ejemplos:
+### Espaciado
+
+Me gusta leer código bien espaciado. Espaciado en bloques de códigos significativo y que estén relacionados "gramaticalmente". Con esto voy a que me gusta ver un espacio entre asignación de variables y ejecución de funciones/métodos.
+
+Atención a los ejemplos a continuación. No son exhaustivos pero sí representativos.
 
 Mal espaciado en código Ruby:
 ```ruby
 def example_function
+  a_variable = 1
   someobject = SomeObject.new
   someobject.do_something
 end
@@ -24,6 +29,7 @@ end
 Buen espaciado en código Ruby:
 ```ruby
 def example_function
+  a_variable = 1
   someobject = SomeObject.new
 
   someobject.do_something
@@ -50,13 +56,16 @@ Buen espaciado en código ERB:
 </table>
 ```
 
-- En ERB y HTML, además de la línea en blanco entre elementos hermanos, sigue estas reglas. El objetivo es que quien revise el código vea el HTML menos apiñado.
-  1. Sin línea en blanco justo después de abrir una etiqueta: el primer hijo va pegado a su padre.
-  2. Si una etiqueta tiene los atributos en varias líneas, el `>` de cierre va solo en su línea, alineado con el inicio de la etiqueta.
-  3. El contenido de un elemento (texto o `<%= %>`) va en su propia línea, indentado. Nunca `<div><%= algo %></div>` en una sola línea.
+### Alineado
+
+En ERB y HTML, además de la línea en blanco entre elementos hermanos, sigue estas reglas. El objetivo es que quien revise el código vea el HTML menos apiñado.
+
+1. Sin línea en blanco justo después de abrir una etiqueta: el primer hijo va pegado a su padre.
+2. Si una etiqueta tiene los atributos en varias líneas, el `>` de cierre va solo en su línea, alineado con el inicio de la etiqueta.
+3. El contenido de un elemento (texto o `<%= %>`) va en su propia línea, indentado. Nunca `<div><%= algo %></div>` en una sola línea.
 
 Mal espaciado en código ERB:
-```erb
+```html
 <div class="menu-link"
      data-controller="clipboard"
      data-clipboard-text-value="<%= menu_url %>">
@@ -70,7 +79,7 @@ Mal espaciado en código ERB:
 ```
 
 Buen espaciado en código ERB:
-```erb
+```html
 <div class="menu-link"
      data-controller="clipboard"
      data-clipboard-text-value="<%= menu_url %>"
@@ -91,9 +100,30 @@ Buen espaciado en código ERB:
 </div>
 ```
 
-Como el texto queda con saltos de línea alrededor, en las pruebas que comparen el texto de un elemento usa `.text.strip` o `include` en vez de comparar el texto exacto.
+> Nota: Como el texto queda con saltos de línea alrededor, en las pruebas que comparen el texto de un elemento usa `.text.strip` o `include` en vez de comparar el texto exacto.
 
-- En Ruby, siempre envuelve los argumentos de una llamada a método en paréntesis, también en pruebas (`get`, `patch`, `post`, `visit`, `within`, etc.).
+#### Excepciones
+
+Si una etiqueta HTML que no se puede cerrar sola no lleva contenido, no alineas la etiqueta que cierre. Cierra en la misma linea.
+
+Mal:
+```html
+<div class="padre">
+  <i span="fa fas-icon">
+  </i>
+</div>
+```
+
+Bien (excepción):
+```html
+<div class="padre">
+  <i span="fa fas-icon"></i>
+</div>
+```
+
+### Uso de paréntesis
+
+En Ruby, siempre envuelve los parámetros y argumentos de un método en paréntesis. En la definición y en las pruebas (ej: `get`, `patch`, `post`, `visit`, `within`, etc.).
 
 Mal:
 ```ruby
@@ -107,7 +137,9 @@ patch("/squad/#{player_id}/release")
 within(".sidebar") do
 ```
 
-- Cuando una llamada o un hash no cabe cómodo en una línea, pon cada argumento o atributo en su propia línea. No agrupes varios atributos por línea.
+### Alineación de argumentos
+
+Cuando una llamada o un hash no cabe cómodo en una línea, pon cada argumento o atributo en su propia línea. No agrupes varios atributos por línea.
 
 Mal:
 ```ruby
@@ -129,7 +161,9 @@ player_id = players.insert(
 )
 ```
 
-- Si escribes pruebas en Minitest o RSpec, los examples deben ser autocontenidos, es decir, la preparación de datos, ejecucíon y verificación del resultado, y si lo hay, la limpieza, deben pasar en el mismo bloque `it`.
+### Patrón de prueba en 4 fases (Four-phase test de Thoughtbot](https://thoughtbot.com/blog/four-phase-test) )
+
+Si escribes pruebas en Minitest o RSpec, los examples deben ser autocontenidos, es decir, la preparación de datos, ejecucíon y verificación del resultado, y si lo hay, la limpieza, deben pasar en el mismo bloque `it`.
 
 Ejemplo de una prueba con este patrón:
 ```ruby
@@ -159,3 +193,5 @@ describe "Sidebar test suite run status", type: :system do
   end
 end
 ```
+
+> Nota: no pongas comentarios que separen cada etapa del test. Eso es innecesario. Solo pon comentarios que explique particularidades del test.
