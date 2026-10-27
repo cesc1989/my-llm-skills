@@ -195,3 +195,12 @@ end
 ```
 
 > Nota: no pongas comentarios que separen cada etapa del test. Eso es innecesario. Solo pon comentarios que explique particularidades del test.
+
+
+### Capturas de pantalla para evidencia visual
+
+Para los casos de cambios visuales, usa Playwright para sacar capturas de las diferentes vistas afectados por los cambios que haces. Pon las capturas en la carpeta `./tmp/capturas/[nombre-de-etapa-o-cambios]/`.
+
+### Levantar y tumbar servidores de pruebas
+
+Si necesitas hacer pruebas o revisar tus cambios puedes levantar servidores como el de Rails o similares. Cuando hagas esto no olvides cerrarlo/tumbarlo cuando termines. Cosa de que si el usuario quiere probar en su local no haya conflicto de PIDs.
