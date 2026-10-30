@@ -204,3 +204,10 @@ Para los casos de cambios visuales, usa Playwright para sacar capturas de las di
 ### Levantar y tumbar servidores de pruebas
 
 Si necesitas hacer pruebas o revisar tus cambios puedes levantar servidores como el de Rails o similares. Cuando hagas esto no olvides cerrarlo/tumbarlo cuando termines. Cosa de que si el usuario quiere probar en su local no haya conflicto de PIDs.
+
+### Textos
+
+Procura no usar em-dash cuando escribas textos. Usa separación normal con comas, punto o punto y coma.
+
+Procura no usar el middle-dot para separar elementos de una lista. Usa comas o pregunta al usuario si sientes que un carácter diferente (guión, barra vertical) quedaría mejor.
+
