@@ -36,6 +36,8 @@ Lo que el ingeniero no puede saber es qué archivos, qué nombres, qué valores 
    </div>
    ```
 
+- Verificaciones: revisa la sección debajo.
+
 - Crea el plan como un archivo .md en la carpeta `./docs`, `./plans` o la que esté disponible.
   - Guardalo en la carpeta `./docs/plans/YYYY-MM-DD-<feature-name>.md`
 
@@ -70,3 +72,15 @@ Una tarea es la unidad más pequeña que conlleva su propio ciclo de pruebas y e
 
 ---
 ```
+
+## Verificaciones
+
+Además de correr linters y pruebas (rspec, rubocop, herb) también puedes correr servidores locales en el scratchpad y tomar capturas cuando los cambios sean a páginas HTML.
+
+Estas verificaciones mediante capturas deben pasar de esta forma:
+
+- Si el usuarios las pide. Si no las pide, pregunta.
+- Usando Playwright
+- Almacenadas dentro de una subcarpeta de ./tmp/ de cada proyecto.
+  - Dicha subcarpeta debe tener un nombre que la identifique de otras. Para esto se debe usar el nombre del plan o lo más relacionado posible al plan en curso.
+- Las capturas deben ser enfocadas. Hero, contenido, footer, formularios, sidebars, sidebars + contenido, móvil. Una captura de la página completa no aporta mucho porque se ven demasiadas cosas.
