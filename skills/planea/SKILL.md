@@ -11,12 +11,17 @@ Escribe un plan de implementación para un ingeniero que no conoce este reposito
 
 Lo que el ingeniero no puede saber es qué archivos, qué nombres, qué valores de la especificación, qué pruebas (tests) verifican cada tarea. Documentalo. Sé conciso.
 
-1. Usa la skill `/revisa` para encontrar detalles a fondo del proyecto en curso.
-2. Arma un plan por etapas de tal forma que se puedan ejecutar manualmente por el ingeniero.
-  2.1 Cada etapa se compone de tareas que se pueden completar de manera independiente entre sí.
-3. Incluye código relevante cuando se cambien secciones existentes.
-4. Si vas a escribir pruebas en Minitest o RSpec usa la forma donde todo va dentro del example. Para que sea autocontenido. Sigue el patrón [Four-phase test de Thoughtbot](https://thoughtbot.com/blog/four-phase-test).
-5. Si incluyes código ERB o HTML, escríbelo poco apiñado para que quien lo revise lo lea fácil: línea en blanco entre elementos hermanos, sin línea en blanco justo después de abrir una etiqueta, el `>` de cierre en su propia línea cuando los atributos ocupan varias líneas, y el contenido de cada elemento en su propia línea, indentado. Por ejemplo:
+- Usa la skill `/revisa` para encontrar detalles a fondo del proyecto en curso.
+
+- Arma un plan por etapas de tal forma que se puedan ejecutar manualmente por el ingeniero.
+  - Cada plan debe tener un nombre según la característica o arreglo que se haga. Esto para poder poner el nombre en cada pr como prefijo del título. Así evitamos varios PRs que empiecen con "Etapa 1: xxx".
+  - Cada etapa se compone de tareas que se pueden completar de manera independiente entre sí.
+
+- Incluye código relevante cuando se cambien secciones existentes.
+
+- Si vas a escribir pruebas en Minitest o RSpec usa la forma donde todo va dentro del example. Para que sea autocontenido. Sigue el patrón [Four-phase test de Thoughtbot](https://thoughtbot.com/blog/four-phase-test).
+
+- Si incluyes código ERB o HTML, escríbelo poco apiñado para que quien lo revise lo lea fácil: línea en blanco entre elementos hermanos, sin línea en blanco justo después de abrir una etiqueta, el `>` de cierre en su propia línea cuando los atributos ocupan varias líneas, y el contenido de cada elemento en su propia línea, indentado. Por ejemplo:
    ```erb
    <div class="menu-link"
         data-controller="clipboard"
@@ -30,9 +35,11 @@ Lo que el ingeniero no puede saber es qué archivos, qué nombres, qué valores 
      </strong>
    </div>
    ```
-6. Crea el plan como un archivo .md en la carpeta `./docs`, `./plans` o la que esté disponible.
-  6.1 Guardalo en la carpeta `./docs/plans/YYYY-MM-DD-<feature-name>.md`
-7. Resume al ingeniero el plan e indica donde puede encontrarlo.
+
+- Crea el plan como un archivo .md en la carpeta `./docs`, `./plans` o la que esté disponible.
+  - Guardalo en la carpeta `./docs/plans/YYYY-MM-DD-<feature-name>.md`
+
+- Resume al ingeniero el plan e indica donde puede encontrarlo.
 
 ## Tamaño correcto de una tarea
 
